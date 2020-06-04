@@ -1,0 +1,82 @@
+import jade.core.Profile;
+import jade.core.ProfileImpl;sssssssssss
+import jade.wrapper.AgentController;
+import jade.wrapper.ContainerController;
+import jade.wrapper.StaleProxyException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class nouran
+ {
+ public static void main(String[] args) { 
+    Quiz t=new nouran();
+    t.jade();
+}
+public void  jade (){
+
+jade.core.Runtime run =jade.core.Runtime.instance();
+Profile p = new ProfileImpl("localhost", 6000 , "nouran");
+ContainerController c =run.createMainContainer(p);
+try  { 
+AgentController a =c.createNewAgent("aaa", "jade.tools.rma.rma", null) 
+  a.start()
+  } 
+catch (StaleProxyException ex) 
+{
+ Logger.getLogger(Quiz.class.getName()).log(Level.SEVERE, null, ex);   
+ }}}
+
+package nouran;
+import jade.core.Agent;
+
+public class agent2 extends Agent{
+    protected void setup()
+{
+ addBehaviour(new beh2());
+ }}
+
+package nouran;
+import jade.core.behaviours.Behaviour;
+import javax.swing.JOptionPane;
+
+public class beh2 extends Behaviour {
+@Override
+   public void action() {
+ String x=JOptionPane.showInputDialog("enter num 1");
+int num1=Integer.parseInt(x)
+String y=JOptionPane.showInputDialog("enter num 2");
+  int num2=Integer.parseInt(x); 
+  int sub=num1/num2;
+System.out.println(sub); 
+  }
+@Override
+  public boolean done() {
+     return true;    
+}}
+
+package nouran;
+import jade.core.Agent;
+
+public class agent3 extends Agent{
+ protected void setup(){ 
+addBehaviour(new beh3());
+}}
+
+package nouran;
+import jade.core.behaviours.Behaviour;
+import javax.swing.JOptionPane;
+
+public class beh3 extends Behaviour {
+  @Override
+ public void action() {
+   String x=JOptionPane.showInputDialog("enter num 1")
+int num1=Integer.parseInt(x);
+String y=JOptionPane.showInputDialog("enter num 2");
+  int num2=Integer.parseInt(x);       
+  int sub=num1-num2;
+System.out.println(sub);  
+}
+  @Override
+  public boolean done() {
+    return true;   
+}}
